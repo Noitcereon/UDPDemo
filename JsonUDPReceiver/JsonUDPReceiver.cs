@@ -14,10 +14,10 @@ namespace JsonUDPReceiver
         public void Start()
         {
             UdpClient client = new UdpClient(7765);
+            Console.WriteLine("Started");
 
             while (true)
             {
-                Console.WriteLine("Started");
                 string responseMessage;
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0); // values are overriden when it receives data.
                 byte[] buffer = client.Receive(ref remoteEndPoint);
@@ -34,7 +34,6 @@ namespace JsonUDPReceiver
                     Console.WriteLine(responseMessage);
                     Console.WriteLine(ex.Message);
                 }
-
 
                 byte[] response = Encoding.UTF8.GetBytes(responseMessage);
                 client.Send(response, response.Length, remoteEndPoint);
