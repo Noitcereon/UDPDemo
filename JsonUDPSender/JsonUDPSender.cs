@@ -14,7 +14,7 @@ namespace JsonUDPSender
         {
             UdpClient client = new UdpClient();
 
-            Car car = new Car("Citroënæøå ostemad", "Silver", "BG624K");
+            Car car = new Car("Citroën ostemad", "Silver", "BG624K");
             string message = JsonSerializer.Serialize(car);
             byte[] bytesToSend = Encoding.UTF8.GetBytes(message);
 
